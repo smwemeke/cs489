@@ -1,22 +1,23 @@
 package edu.miu.cs489;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class PensionPlan {
-    int planReferenceNumber;
-    LocalDate enrollmentDate;
-    double monthlyContribution;
+   private  String planReferenceNumber;
+   private  LocalDate enrollmentDate;
+    private Optional<Double> monthlyContribution;
 
-    public PensionPlan(int planReferenceNumber, LocalDate enrollmentDate, double monthlyContribution) {
+    public PensionPlan(String planReferenceNumber, LocalDate enrollmentDate, Double monthlyContribution) {
         this.planReferenceNumber = planReferenceNumber;
         this.enrollmentDate = enrollmentDate;
-        this.monthlyContribution = monthlyContribution;
+        this.monthlyContribution = Optional.ofNullable(monthlyContribution);
     }
 
-    public int getPlanReferenceNumber() {
+    public String getPlanReferenceNumber() {
         return planReferenceNumber;
     }
-    public void setPlanReferenceNumber(int planReferenceNumber) {
+    public void setPlanReferenceNumber(String planReferenceNumber) {
         this.planReferenceNumber = planReferenceNumber;
     }
 
@@ -28,11 +29,11 @@ public class PensionPlan {
         this.enrollmentDate = enrollmentDate;
     }
 
-    public double getMonthlyContribution() {
+    public Optional<Double> getMonthlyContribution() {
         return monthlyContribution;
     }
 
-    public void setMonthlyContribution(double monthlyContribution) {
+    public void setMonthlyContribution(Optional<Double> monthlyContribution) {
         this.monthlyContribution = monthlyContribution;
     }
 }

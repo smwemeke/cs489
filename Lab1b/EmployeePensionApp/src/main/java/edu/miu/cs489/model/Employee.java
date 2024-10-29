@@ -1,19 +1,22 @@
 package edu.miu.cs489;
 
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.Optional;
 
 public class Employee {
-    long employeeId;
-    String firstName, lastName;
-    LocalDate employmentDate;
-    double yearlySalary;
+    private long employeeId;
+    private String firstName, lastName;
+    private LocalDate employmentDate;
+    private double yearlySalary;
+    private Optional<PensionPlan> pensionPlan;
 
-    public Employee(long employeeId, String firstName, String lastName, LocalDate employmentDate, double yearlySalary) {
-        this.employeeId = employeeId;
+    public Employee( String firstName, String lastName,  double yearlySalary, LocalDate employmentDate,PensionPlan pensionPlan) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employmentDate = employmentDate;
         this.yearlySalary = yearlySalary;
+        this.pensionPlan = Optional.ofNullable(pensionPlan);
     }
 
     public long getEmployeeId() {
@@ -54,5 +57,13 @@ public class Employee {
 
     public void setYearlySalary(double yearlySalary) {
         this.yearlySalary = yearlySalary;
+    }
+    public Optional<PensionPlan> getPensionPlan() {
+        return pensionPlan;
+    }
+
+    public static Comparator<Employee> getEmployeeComparator(){
+        return Comparator.comparing(Employee::getLastName)
+                .thenComparing(Comparator.comparing(Employee::getYearlySalary).reversed());
     }
 }
