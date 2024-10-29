@@ -1,0 +1,12 @@
+
+€
+java:S1854*"=Remove this useless assignment to local variable "csvHeader".(º¸ëí8©£Ó°­2J$bd80eb83-780b-458a-8742-07af820a1a95
+r	java:S106"+Replace this use of System.out by a logger.(åó›Øşÿÿÿÿ8¬£Ó°­2J$f2380986-17ff-49d4-a9ba-3f59070eeecc
+r	java:S106"+Replace this use of System.out by a logger.(‘õ¼©ùÿÿÿÿ8¬£Ó°­2J$fdb1b4fd-3153-499f-bb90-9349ee620043
+m	java:S106 "+Replace this use of System.out by a logger.(‰ÑÌ™8­£Ó°­2J$61d0c20c-da53-48b7-9428-3a462a6f055a
+r	java:S106%"+Replace this use of System.out by a logger.(åÛİ“üÿÿÿÿ8­£Ó°­2J$b67f26a7-1dd3-433d-a2d2-131a07d4698b
+r	java:S106'"+Replace this use of System.out by a logger.(‘õ¼©ùÿÿÿÿ8±£Ó°­2J$37b7eb65-6ed0-49b1-a871-afee85b1c745
+q
+java:S1481*".Remove this unused "csvHeader" local variable.(º¸ëí8®£Ó°­2J$7277b5d9-360d-4833-89b9-ff6724912fd9
+m	java:S106-"+Replace this use of System.out by a logger.(„öŠ¸8úÔ°­2J$597a56df-0755-4be5-9169-b4725866e95e
+r	java:S1064"+Replace this use of System.out by a logger.(³Í…²şÿÿÿÿ8şºÙ°­2J$20620159-9fc1-4688-959d-a1444b1f725b
