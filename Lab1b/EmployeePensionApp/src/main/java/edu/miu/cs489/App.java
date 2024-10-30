@@ -1,54 +1,27 @@
 package edu.miu.cs489;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import edu.miu.cs489.Util.EmployeeUtil;
 import edu.miu.cs489.model.Employee;
 import edu.miu.cs489.model.PensionPlan;
 
-public class Main {
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class App{
     public static void main(String[] args) {
-       List<Employee> employee = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
+        employees.add(new Employee(1L,"Daniel","Agar", LocalDate.of(2018,1,17),105945.50,new PensionPlan("EX1089",LocalDate.of(2023,1,17),100.0)));
+        employees.add(new Employee(2L,"Benard","Shaw", LocalDate.of(2019,4,3),197750.00,null));
+        employees.add(new Employee(3L,"Carly","Agar", LocalDate.of(2014,5,16),842000.75,new PensionPlan("EX1089",LocalDate.of(2023,1,17),100.0)));
+        employees.add(new Employee(4L,"Wesley","Schneider", LocalDate.of(2019,10,2),74500.00,null));
 
-       employee.add(new Employee(
-            "Daniel","Agar", 105945.50,
-                      LocalDate.of(2018,01,17),
-                      new PensionPlan("EX1089", LocalDate.of(2023,01,17), 100.00)
-       ));
+        System.out.println("Task 1");
+        System.out.println(EmployeeUtil.byJsonFormat(EmployeeUtil.sortForTask1(employees)));
 
-        employee.add(new Employee(
-                "Benard", "Shaw", 197750.00,
-                LocalDate.of(2019, 4, 3),
-                new PensionPlan("EX1090", LocalDate.of(2023, 1, 17), null)
-        ));
-
-        employee.add(new Employee(
-                "Carly", "Agar", 842000.75,
-                LocalDate.of(2014, 5, 16),
-                new PensionPlan("SM2307", LocalDate.of(2019, 11, 4), 1555.50)
-        ));
-
-        employee.add(new Employee(
-                "Wesley", "Schneider", 74500.00,
-                LocalDate.of(2019, 10, 2),
-                null
-        ));
-
-        employee.sort(Employee.getEmployeeComparator());
-        String jsonOutput = JsonConverter.convertToJson(employee);
-
+        System.out.println("Task 2");
+        System.out.println(EmployeeUtil.byJsonFormat(EmployeeUtil.filterForTask2(employees)));
     }
-    public static String convertToJson(List<Employee> employees) {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        try {
-            return mapper.writeValueAsString(employees);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "{}";
-        }
-
 }

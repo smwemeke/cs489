@@ -1,4 +1,4 @@
-package edu.miu.cs489;
+package edu.miu.cs489.model;
 
 import java.time.LocalDate;
 import java.util.Comparator;
@@ -9,16 +9,16 @@ public class Employee {
     private String firstName, lastName;
     private LocalDate employmentDate;
     private double yearlySalary;
-    private Optional<PensionPlan> pensionPlan;
+    private PensionPlan pensionPlan;
 
-    public Employee( String firstName, String lastName,  double yearlySalary, LocalDate employmentDate,PensionPlan pensionPlan) {
+    public Employee(long employeeId, String firstName, String lastName, LocalDate employmentDate, double yearlySalary, PensionPlan pensionPlan) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.employmentDate = employmentDate;
         this.yearlySalary = yearlySalary;
-        this.pensionPlan = Optional.ofNullable(pensionPlan);
+        this.pensionPlan = pensionPlan;
     }
-
     public long getEmployeeId() {
         return employeeId;
     }
@@ -58,7 +58,7 @@ public class Employee {
     public void setYearlySalary(double yearlySalary) {
         this.yearlySalary = yearlySalary;
     }
-    public Optional<PensionPlan> getPensionPlan() {
+    public PensionPlan getPensionPlan() {
         return pensionPlan;
     }
 
